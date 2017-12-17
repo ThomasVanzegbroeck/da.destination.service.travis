@@ -3,7 +3,7 @@ package model.db;
 import java.util.List;
 import java.util.Map;
 
-
+//comment so i can push
 public interface DestinationDB {
 
 	public void addVal(String stad, String data);
