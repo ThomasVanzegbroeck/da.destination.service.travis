@@ -5,7 +5,7 @@
 
 	<groupId>UCLL.ThomasVanzegbroeck</groupId>
 	<artifactId>da.destination.service.travis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>latest</version>
 	<packaging>jar</packaging>
 
 	
@@ -97,8 +97,31 @@
            </resource>
         </resources>
       </configuration>
-    </plugin>
-		</plugins>
+      </plugin>
+        <plugin>
+   <artifactId>maven-resources-plugin</artifactId>
+   <executions>
+       <execution>
+       <id>copy-resources</id>
+<!-- here the phase you need -->
+       <phase>validate</phase>
+       <goals>
+       <goal>copy-resources</goal>
+       </goals>
+   <configuration>
+      <outputDirectory>${basedir}/target/dockerfile</outputDirectory>
+      <resources>
+         <resource>
+         <directory>.</directory>
+         <filtering>true</filtering>
+         </resource>
+      </resources>
+   </configuration>
+   </execution>
+   </executions>
+</plugin>
+			
+</plugins>
 		
 	</build>
 
